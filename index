@@ -1,0 +1,26 @@
+
+Unzip a File
+
+$zip = new ZipArchive;
+$file = $zip->open('file.zip');
+if ($file) {
+	$zip->extractTo('/extract_path/');
+	$zip->close();
+	echo 'Archive extracted successfully!';
+}
+
+Mobile Device Detection
+if (preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"])) {
+	// Is mobile...
+}
+
+Send Email
+$from    = 'david@yourwebsite.com';
+$to      = 'nobody@example.com';
+$subject = 'Your Subject';
+// Plain message
+$message = 'Hello! How are you today?';
+// HTML message
+$message = '<p>Hello! How are you today?</p>';
+$headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'Return-Path: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
+mail($to, $subject, $message, $headers);
